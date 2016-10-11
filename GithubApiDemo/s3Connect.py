@@ -16,6 +16,3 @@ def upload(list):
     endpoint='s3-us-west-2.amazonaws.com')
   
   return conn.upload(datetimestamp + ' profiles_without_names',f,'github-api-demo')
-
-
-
