@@ -8,6 +8,7 @@ import json
 import config
 import orgUrls
 import listMembers
+import checkprofiles
 
 ##Global data##
 
@@ -19,12 +20,15 @@ import listMembers
 def main():
   #get org urls
   orgs = orgUrls.getOrgs()
-  print(orgs)
+  #print(orgs)
   
   #get member list from each orgUrls
-  listMembers.listMembers(orgs)
+  members = listMembers.listMembers(orgs)
+  #print(members)
   
   #check each member to see if they have a "name" attribute - if not store the org, login, email
+  profilesWithoutNames = checkprofiles.checkForNull("name", members)
+  print(profilesWithoutNames)
   
   #store list on S3
   
