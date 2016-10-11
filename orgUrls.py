@@ -13,5 +13,5 @@ def getOrgs():
   orgs_data = json.loads(orgs.text)
   
   for org in orgs_data:
-    orgUrls.append(org["members_url"])
+    orgUrls.append(org["url"])
   return orgUrls
