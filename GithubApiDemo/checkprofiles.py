@@ -11,11 +11,9 @@ def checkForNull(attribute, memberUrls):
   attributeNotFound =[]
   
   for url in memberUrls:
-    print(url)
     member_response = requests.get(url, auth=HTTPBasicAuth(config.username, config.password))
     member_data = json.loads(member_response.text)
     
-    print(member_data[attribute])
     if member_data[attribute] is None:
         #TODO: TBD Could grab email here if speed was an issue
         attributeNotFound.append(url)

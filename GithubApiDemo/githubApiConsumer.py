@@ -26,13 +26,13 @@ def main():
   members = listMembers.listMembers(orgs)
   #print(members)
   
-  #check each member to see if they have a "name" attribute - if not store the org, login, email
+  #get members without a "name" attribute 
   profilesWithoutNames = checkprofiles.checkForNull("name", members)
   print(profilesWithoutNames)
   
   #store list on S3
   
-  #email users with link to github to update their "name"
+  #email users with link to github to update their profile "name"
 
 #run main#############################################################  
 main()
