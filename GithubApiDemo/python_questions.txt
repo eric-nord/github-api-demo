@@ -1,0 +1,14 @@
+1) where to put info about installed pip requirements?
+  requirements.txt and then Makefile?
+    ##Makefile##
+        init:
+        pip install -r requirements.txt
+
+        test:
+            py.test tests
+
+        .PHONY: init test
+2) How to properly structure main file vs def files
+    1 def per file? is this silly?
+3) How to keep from duplicating import requests...
+4) config.py in gitignore and contains auth stuffs?
