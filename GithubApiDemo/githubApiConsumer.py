@@ -10,6 +10,7 @@ import orgUrls
 import listMembers
 import checkprofiles
 import s3Connect
+import sendemails
 
 #With provided username and password polls GitHub APIs for users in organizations
 #without a "user" attribute. Then saves list of the users to AWS S3 and emails
@@ -32,6 +33,8 @@ def main():
   print(pushStatus)
   
   #email users with link to github to update their profile "name"
+  for profile in profilesWithoutNames:
+    sendemails.send(profile)
 
 #run main#############################################################  
 main()
