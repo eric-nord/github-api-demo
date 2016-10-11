@@ -17,12 +17,15 @@ def getEmailAddress(url):
 def send(profile):
   fromaddr = config.gmailuser
   toaddr = getEmailAddress(profile)
+  username = profile.rsplit('/', 1)[-1]
+  #userprofile = "https://github.com/" + username
+  profilelink = "https://github.com/account"
   msg = MIMEMultipart()
   msg['From'] = fromaddr
   msg['To'] = toaddr
   msg['Subject'] = "Profile update request"
 
-  body = "Noticed you don't have a profile name on your Github account. Here's a link to your github profile to update it. But really I'd recommend going to Github through your browser - it's safer that way. Links in emails are not secure."
+  body = "Noticed you don't have a profile name on your Github account. Here's a link to your github profile " + profilelink + ". I'd recommend going to Github through your browser - it's safer that way. Links in emails are not secure."
   msg.attach(MIMEText(body, 'plain'))
 
   server = smtplib.SMTP('smtp.gmail.com:587')
