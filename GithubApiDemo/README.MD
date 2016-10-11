@@ -1,7 +1,8 @@
 ## Synopsis
 
-Demo of the github APIs
-[Initial requirements and assumptions](https://docs.google.com/document/d/17iH_e4RWnEHoxBZT7qNUh-vMGAQI53yUnsH_FgTQtuk)
+Demo of the github APIs, AWS S3, and email to meet this coding challenge:
+
+See [Requirements and Assumptions](https://docs.google.com/document/d/17iH_e4RWnEHoxBZT7qNUh-vMGAQI53yUnsH_FgTQtuk/edit?usp=sharing)
 
 ## Installation
 
