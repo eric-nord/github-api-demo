@@ -1,7 +1,11 @@
+"""Main Module for executing GitHub Demo 
+
+Executes GitHub API demo
+"""
+
 __version__ = '0.0.1'
 __author__ = 'Eric Nord'
 
-import utils
 import github_utils
 import s3Connect
 import sendemails
@@ -11,6 +15,7 @@ def main():
   
   orgName = input("Enter organization name to check - \"All\" will check all organizations associated with your account: ")
   print orgName
+  
   if orgName == "All":
     #get all org urls associated with account
     orgs = github_utils.get_orgs()

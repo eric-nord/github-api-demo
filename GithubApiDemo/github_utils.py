@@ -1,3 +1,8 @@
+"""GitHub util module.
+
+Functions for pulling data from GitHub APIs
+"""
+
 __version__ = "0.0.1"
 __author__ = "Eric Nord"
 
