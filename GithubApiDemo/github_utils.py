@@ -22,7 +22,7 @@ def get_orgs():
   return org_urls
 
 
-def listMembers(orgs):
+def list_members(orgs):
   """Provides a list of Member urls per organizations.
   
   param orgs either a list of urls pointing to organizations or a single org name
@@ -32,26 +32,42 @@ def listMembers(orgs):
   
   
   if isinstance(orgs, list):
-    for url in orgUrls:
+    #if list of orgs for each org get members list
+    for url in orgs:
       #append /member to url - member_url is not valid canidate without a member list
       url = url + "/members"
+      print("Checking " + url)
       members_data = utils.get_json(url)
 
       for member in members_data:
         members.append(member["url"])
     return members
   
+  
   else:
     #build url from input org name and return member list
-    url = "https://api.github.com/orgs/" + orgs
+    url = "https://api.github.com/orgs/" + orgs + "/members"
     members_data = utils.get_json(url)
-
-    for member in members_data:
-      members.append(member["url"])
-    return members
+    
+    #check for invalid GitHub credentials or invalid github org name
+    try:
+      for member in members_data:
+        members.append(member["url"])
+      return members
+    except TypeError:
+      if(members_data["message"] == "Not Found"):
+        print("That organization doesn't exist try again\n")
+        raise SystemExit
+      elif(members_data["message"] == "Bad credentials"):
+        print("Please verify GitHub credentials are correct in config.py")
+        raise SystemExit
+      else:
+        print (members_data)
+      raise SystemExit
+    
     
 
-def checkForNull(attribute, memberUrls):
+def check_for_null(attribute, memberUrls):
   """Provides a list of Member urls that have [attribute] is null.
   
   param attribute to check for null value
