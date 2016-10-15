@@ -1,0 +1,19 @@
+- Review PEP 8 conventions
+- Structure project according to insitutions' standard ie.
+    README.rst
+    LICENSE
+    setup.py
+    requirements.txt
+    sample/__init__.py
+    sample/core.py
+    sample/helpers.py
+    docs/conf.py
+    docs/index.rst
+    tests/test_basic.py
+    tests/test_advanced.py
+
+For additional Python practice
+- Add classes
+- Add tests
+- Add makefile targeting requirements.txt
+- 

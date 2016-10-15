@@ -6,14 +6,13 @@ Executes GitHub API demo
 __version__ = '0.0.1'
 __author__ = 'Eric Nord'
 
-#Verifies user has followed installation instructions
 try:
     import config
 except ImportError:
     print("Please copy exampleconfig.py to config.py\n" 
           "and enter authentication information before proceeding")
     raise SystemExit
-
+    
 import github_utils
 import s3Connect
 import sendemails

@@ -1,10 +1,18 @@
-import config
+"""SMTP Email connector to gmail.
+
+Sends email to organization member via gmail SMTP using 
+config.py credentials
+"""
+import json
+
+import requests
+from requests.auth import HTTPBasicAuth
 import smtplib
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEText import MIMEText
-import requests
-from requests.auth import HTTPBasicAuth
-import json
+
+import config
+
 
 
 def getEmailAddress(url):

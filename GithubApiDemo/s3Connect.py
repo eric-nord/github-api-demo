@@ -5,14 +5,14 @@ import datetime
 
 import requests
 
+import config
+
 try:
     import tinys3
 except ImportError:
     print("'pip install tinys3' first please.\n" 
           "Also ensure you're running in Python 2")
     raise SystemExit
-
-import config
 
 def upload(list):
   """Uploads list of links to user profiles
