@@ -10,7 +10,7 @@ See [Requirements and Assumptions](https://docs.google.com/document/d/17iH_e4RWn
 * Gmail will need to allow unsecure applications and unlock Captcha to provide SMTP services. 
     https://www.google.com/settings/security/lesssecureapps
     https://accounts.google.com/b/0/DisplayUnlockCaptcha 
-* To run: python GitHubApiDemo/_main.py
+* To run: python GitHubApiDemo/github_aip_demo.py
 
 ## License
 
