@@ -1,31 +1,32 @@
-import requests
-from requests.auth import HTTPBasicAuth
-import json
+__version__ = '0.0.1'
+__author__ = 'Eric Nord'
 
-####config.py######
-#username = "github_username"
-#password = "github_password"
-import config
-import orgUrls
-import listMembers
-import checkprofiles
+import utils
+import github_utils
 import s3Connect
 import sendemails
 
-#With provided username and password polls GitHub APIs for users in organizations
-#without a "user" attribute. Then saves list of the users to AWS S3 and emails
-#users inviting them to update their profile name"
 def main():
-  #get org urls
-  orgs = orgUrls.getOrgs()
-  #print(orgs)
+  """  Polls GitHub APIs for users in all organizations without a "user" attribute, saves list of users to AWS S3 and emails users  """
   
-  #get member list from each orgUrls
-  members = listMembers.listMembers(orgs)
-  #print(members)
+  orgName = input("Enter organization name to check - \"All\" will check all organizations associated with your account: ")
+  print orgName
+  if orgName == "All":
+    #get all org urls associated with account
+    orgs = github_utils.get_orgs()
+    #print(orgs)
+    
+    #get member list from each organization url
+    members = github_utils.listMembers(orgs)
+    #print(members)
+  else:
+    #get member list from input organization name
+    members = github_utils.listMembers(orgName)
+    #print(members)
+    
   
   #get members without a "name" attribute 
-  profilesWithoutNames = checkprofiles.checkForNull("name", members)
+  profilesWithoutNames = github_utils.checkForNull("name", members)
   print(profilesWithoutNames)
   
   #store list on S3
