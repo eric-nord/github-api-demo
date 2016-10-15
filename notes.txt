@@ -16,3 +16,4 @@ For additional Python practice
 - Add classes
 - Add tests
 - Add makefile targeting requirements.txt
+- Migrate to event drive system using asycnio
