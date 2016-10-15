@@ -1,5 +1,6 @@
 # config for auth data
 config.py
+profiles_without_names
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
